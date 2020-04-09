@@ -28,3 +28,4 @@ eureka:
   lease-renewal-interval-in-seconds: 2   #间隔多少秒向EurekaServer发送心跳
   lease-expiration-duration-in-seconds: 4   #如果多少秒后没有发送心跳在EurekaServer注销该Clent
   
+mytext: git
