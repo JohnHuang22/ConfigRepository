@@ -1,0 +1,30 @@
+server:
+ servlet:
+  context-path: /FeignConsumer
+
+spring:
+ devtools:
+  restart: 
+   enabled: true #设置开启热部署
+ thymeleaf:
+  cache: false   #不缓存页面模板
+ freemarker:
+  cache: false   #页面不加载缓存，修改即时生效
+  
+feign:
+ httpclient:
+  enabled: false #是否启用httpclient
+  connection-timeout: 3000 #请求连接超时时间（毫秒）
+ okhttp:
+  enabled: true #是否启用httpok（性能比httpclient高）
+ hystrix:
+  enabled: true #是否启用hystrix
+  
+eureka:
+ client:
+  service-url:
+   defaultZone: http://localhost:8761/eureka/
+ instance:
+  lease-renewal-interval-in-seconds: 2   #间隔多少秒向EurekaServer发送心跳
+  lease-expiration-duration-in-seconds: 4   #如果多少秒后没有发送心跳在EurekaServer注销该Clent
+  
