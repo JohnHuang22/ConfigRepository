@@ -1,0 +1,42 @@
+server:
+ servlet:
+  context-path: /PersonManager
+
+spring: 
+ mvc:
+  view:
+   prefix: /view/
+   suffix: .html
+ datasource:
+  #MySql
+  driver-class-name: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/john?serverTimezone=UTC
+  username: root
+  password: admin
+ jpa:
+  database: MYSQL
+  show-sql: true
+  hibernate:
+   ddl-auto: update
+   naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  properties:
+   hibernate:
+    dialect: org.hibernate.dialect.MySQL5Dialect
+    current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+ devtools:
+  restart: 
+   enabled: true #设置开启热部署
+ thymeleaf:
+  cache: false   #不缓存页面模板
+ freemarker:
+  cache: false   #页面不加载缓存，修改即时生效
+  
+eureka:
+ client:
+  service-url:
+   defaultZone: http://localhost:8761/eureka/
+ instance:
+  lease-renewal-interval-in-seconds: 2   #间隔多少秒向EurekaServer发送心跳
+  lease-expiration-duration-in-seconds: 4   #如果多少秒后没有发送心跳在EurekaServer注销该Clent
+  
+mytext: git
